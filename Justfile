@@ -1,5 +1,5 @@
 export repo_organization := env("GITHUB_REPOSITORY_OWNER", "footvaalvica")
-export image_name := env("IMAGE_NAME", "bazzite-dx")
+export image_name := env("IMAGE_NAME", "bazzite-deck")
 export centos_version := env("CENTOS_VERSION", "stream10")
 export fedora_version := env("CENTOS_VERSION", "42")
 export default_tag := env("DEFAULT_TAG", "latest")
