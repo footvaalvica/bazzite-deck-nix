@@ -33,9 +33,15 @@ jobs:
           - name: default
             image_name: bazzite-deck
             base_image: ghcr.io/ublue-os/bazzite-dx:stable
+          - name: gnome
+            image_name: bazzite-deck-gnome
+            base_image: ghcr.io/ublue-os/bazzite-dx-gnome:stable
           - name: nvidia
             image_name: bazzite-deck-nvidia
             base_image: ghcr.io/ublue-os/bazzite-dx-nvidia:stable
+          - name: nvidia-gnome
+            image_name: bazzite-deck-nvidia-gnome
+            base_image: ghcr.io/ublue-os/bazzite-dx-nvidia-gnome:stable
     env:
       IMAGE_NAME: ${{ matrix.variant.image_name }}
       BASE_IMAGE: ${{ matrix.variant.base_image }}
