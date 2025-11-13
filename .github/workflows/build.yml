@@ -25,8 +25,20 @@ concurrency:
 
 jobs:
   build_push:
-    name: Build and push image
+    name: Build and push image - ${{ matrix.variant.name }}
     runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        variant:
+          - name: default
+            image_name: bazzite-deck
+            base_image: ghcr.io/ublue-os/bazzite-dx:stable
+          - name: nvidia
+            image_name: bazzite-deck-nvidia
+            base_image: ghcr.io/ublue-os/bazzite-dx-nvidia:stable
+    env:
+      IMAGE_NAME: ${{ matrix.variant.image_name }}
+      BASE_IMAGE: ${{ matrix.variant.base_image }}
 
     permissions:
       contents: read
@@ -98,6 +110,8 @@ jobs:
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
+          build-args: |
+            BASE_IMAGE=${{ env.BASE_IMAGE }}
 
       # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
       # This does not make your image faster to download, just provides better resumability and fixes a few errors.
