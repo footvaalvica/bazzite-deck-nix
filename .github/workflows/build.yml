@@ -30,17 +30,17 @@ jobs:
     strategy:
       matrix:
         variant:
-          - name: default
+          - name: bazzite-dx-nix
             image_name: bazzite-dx-nix
             base_image: ghcr.io/ublue-os/bazzite-dx:stable
-          - name: gnome
+          - name: bazzite-dx-gnome-nix
             image_name: bazzite-dx-gnome-nix
             base_image: ghcr.io/ublue-os/bazzite-dx-gnome:stable
-          - name: nvidia
-            image_name: bazzite-deck-nvidia-nix
+          - name: bazzite-dx-nvidia-nix
+            image_name: bazzite-dx-nvidia-nix
             base_image: ghcr.io/ublue-os/bazzite-dx-nvidia:stable
-          - name: nvidia-gnome
-            image_name: bazzite-deck-nvidia-gnome-nix
+          - name: bazzite-dx-nvidia-gnome-nix
+            image_name: bazzite-dx-nvidia-gnome-nix
             base_image: ghcr.io/ublue-os/bazzite-dx-nvidia-gnome:stable
     env:
       IMAGE_NAME: ${{ matrix.variant.image_name }}
