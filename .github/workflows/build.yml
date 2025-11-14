@@ -31,16 +31,16 @@ jobs:
       matrix:
         variant:
           - name: default
-            image_name: bazzite-deck
+            image_name: bazzite-dx-nix
             base_image: ghcr.io/ublue-os/bazzite-dx:stable
           - name: gnome
-            image_name: bazzite-deck-gnome
+            image_name: bazzite-dx-gnome-nix
             base_image: ghcr.io/ublue-os/bazzite-dx-gnome:stable
           - name: nvidia
-            image_name: bazzite-deck-nvidia
+            image_name: bazzite-deck-nvidia-nix
             base_image: ghcr.io/ublue-os/bazzite-dx-nvidia:stable
           - name: nvidia-gnome
-            image_name: bazzite-deck-nvidia-gnome
+            image_name: bazzite-deck-nvidia-gnome-nix
             base_image: ghcr.io/ublue-os/bazzite-dx-nvidia-gnome:stable
     env:
       IMAGE_NAME: ${{ matrix.variant.image_name }}
